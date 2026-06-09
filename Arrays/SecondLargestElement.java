@@ -1,4 +1,5 @@
 // BruteForce Approach
+/*
 import java.util.*;
 class SecondLargestElement{
 	public static void main(String[] args){
@@ -21,5 +22,30 @@ class SecondLargestElement{
 			}
 		}
 		System.out.println(secondLargest);
+	}
+}
+*/
+
+import java.util.*;
+class SecondLargestElement{
+	public static int secondLargestEle(int arr[]){
+		int largest = arr[0],secondLargest = Integer.MIN_VALUE;
+		
+		for(int i : arr){
+			if(i > largest) largest = i;
+			if(i > secondLargest && i != largest) secondLargest = i;
+		}
+		return secondLargest;
+	}
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		
+		int arr[] = new int[n];
+
+		for(int i = 0 ; i < n ; i++){
+			arr[i] = sc.nextInt();
+		}
+		System.out.println(secondLargestEle(arr));
 	}
 }
